@@ -7,7 +7,7 @@ import Channel_define
 client = discord.Client()
 
 
-#起動時に動作する処理
+#on booting
 @client.event
 async def on_ready():
   print('--------------------------------------')
@@ -15,7 +15,7 @@ async def on_ready():
   print('--------------------------------------')
 
 
-#メッセージ受信時に動作する処理 
+#incoming messages
 @client.event
 async def on_message(message):
   if message.author.bot:
@@ -25,7 +25,7 @@ async def on_message(message):
   if message.content.startswith('!Hello') or message.content.startswith("!Hi"):
     await message.reply('Hello!', mention_author=True)
 
-# change icon
+  #change icon
   if message.content == "Change icon":
     attachment = message.attachments[0]
     await attachment.save(f'New_icon{os.path.splitext(attachment.url)[1]}')
@@ -55,7 +55,7 @@ async def on_message(message):
     
 
 
-#online status表示
+#Show online status
 @client.event
 async def on_member_update(before, after):
   if str(before.status) == "online":
