@@ -7,9 +7,6 @@ import Channel_define
 client = discord.Client()
 
 
-guild_id = 531506286819409920
-guild = client.get_guild(531506286819409920)
-
 #起動時に動作する処理
 @client.event
 async def on_ready():
